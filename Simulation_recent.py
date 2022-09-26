@@ -39,7 +39,7 @@ mydir = os.path.dirname(os.path.realpath(__file__))
 datapath = mydir + os.sep + 'data' 
 
 # .outb file and pickle file
-sim_file = datapath + os.sep + 'simulation_results' + os.sep + 'turb.outb'   
+sim_file = datapath + os.sep + 'simulation_results' + os.sep + 'step.outb'   
 pkl_file = datapath + os.sep +'linear_models' + os.sep + 'ABCD_matrices_new.pkl'  
 
 # load simulations
