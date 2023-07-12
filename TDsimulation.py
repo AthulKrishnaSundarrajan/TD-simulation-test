@@ -2,7 +2,7 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt 
 import pickle
-from scipy.interpolate import PchipInterpolator
+from scipy.interpolate import PchipInterpolator,CubicSpline
 from scipy.integrate import solve_ivp
 
    
@@ -78,7 +78,7 @@ def runSimulation(Aw,Bw,Cw,Dw,xw,uw,yw,u_h,Time,States,Controls,debug_):
     Uo_debug = lambda t: Uo_debug_pp(t)
     
     # interpolating function for wind speed
-    W_pp = PchipInterpolator(Time,Wind)
+    W_pp = CubicSpline(Time,Wind)
     
     # get derivative of wind function dW/dt
     dW_pp = W_pp.derivative 
@@ -110,7 +110,7 @@ def runSimulation(Aw,Bw,Cw,Dw,xw,uw,yw,u_h,Time,States,Controls,debug_):
        
     
     # state operating points interpolating function
-    Xo_pp = PchipInterpolator(u_h, xw, axis = 1,extrapolate = True)
+    Xo_pp = CubicSpline(u_h, xw, axis = 1,extrapolate = True)
     Xo_fun = lambda w: Xo_pp(w)
     
     # outputs interpolating function
@@ -243,6 +243,8 @@ def runSimulation(Aw,Bw,Cw,Dw,xw,uw,yw,u_h,Time,States,Controls,debug_):
     ax2.plot(Tavg,Xavg[:,4],label = 'LTI')
     ax2.plot(Tlpv,Xlpv[:,4],label = 'LPV')
     ax2.legend()
+
+    plt.show()
 
 
 

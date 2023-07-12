@@ -13,7 +13,7 @@ mydir = os.path.dirname(os.path.realpath(__file__))
 datapath = mydir + os.sep + 'data' 
 
 # .outb file and pickle file
-sim_file = datapath + os.sep + 'simulation_results' + os.sep + 'Turb.mat'   # <------Change this
+sim_file = datapath + os.sep + 'simulation_results' + os.sep + 'Step.mat'   # <------Change this
 pkl_file = datapath + os.sep +'linear_models' + os.sep + 'ABCD_matrices_old.mat'  # <--------- Change this
 
 # load simulation file
@@ -50,5 +50,7 @@ yw = ABCD_matrices['yw']
 
 u_h = np.squeeze(ABCD_matrices['u_h'])
 
+debug_ = False
+
 # function to run simulations and plot results
-runSimulation(Aw,Bw,Cw,Dw,xw,uw,yw,u_h,Time,States,Controls,True)
+runSimulation(Aw,Bw,Cw,Dw,xw,uw,yw,u_h,Time,States,Controls,debug_)

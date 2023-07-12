@@ -81,18 +81,21 @@ Bw = ABCD_matrices['B']; Bw = np.transpose(Bw,(2,0,1))
 Cw = ABCD_matrices['C']; Cw = np.transpose(Cw,(2,0,1))
 Dw = ABCD_matrices['D']; Dw = np.transpose(Dw,(2,0,1))
 
+# operating points
 xw = ABCD_matrices['x_ops']
 uw = ABCD_matrices['u_ops']
 yw = ABCD_matrices['y_ops']
 
+# wind speed
 u_h = ABCD_matrices['u_h']
 
+# description
 DescOutput = ABCD_matrices['DescOutput']
 DescStates = ABCD_matrices['DescStates']
 DescCntrlInpt = ABCD_matrices['DescCntrlInpt']
 
-debug_ = True 
+debug_ = False # set to false
 
-
+# run simulation and plot results
 runSimulation(Aw,Bw,Cw,Dw,xw,uw,yw,u_h,Time,States,Controls,debug_)
 
